@@ -1,36 +1,47 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Compiler Frontend
 
-## Getting Started
+This project is a **compiler frontend** designed to parse, evaluate, and generate code for a custom programming language. It includes a **lexer**, **parser**, and **evaluator** to process source code and execute it. The compiler supports variable declarations, assignments (including compound assignments), expressions, and basic control structures.
 
-First, run the development server:
+---
 
-```bash
+## Features
+
+### 1. **Lexer**
+The lexer tokenizes the source code into meaningful tokens such as:
+- **Keywords**: `int`, `float`, `print`, `function`, etc.
+- **Operators**: `+`, `-`, `*`, `/`, `+=`, `-=`, `*=`, `/=`, `=`, etc.
+- **Identifiers**: Variable and function names.
+- **Literals**: Numbers, strings, etc.
+- **Delimiters**: `;`, `{`, `}`, `(`, `)`.
+
+### 2. **Parser**
+The parser converts tokens into an **Abstract Syntax Tree (AST)**. It supports:
+- Variable declarations and initializations.
+- Assignment statements (including compound assignments like `+=`, `-=`).
+- Arithmetic expressions (`+`, `-`, `*`, `/`).
+- Print statements.
+- Function declarations.
+
+### 3. **Evaluator**
+The evaluator processes the AST and executes the code. It supports:
+- Variable storage and retrieval using a symbol table.
+- Arithmetic operations.
+- Compound assignments.
+- Printing values to the console.
+
+---
+
+## File Structure
+
+### **Frontend**
+- **`lexer/lexer.js`**: Tokenizes the source code into tokens.
+- **`parser/parser.js`**: Parses tokens into an AST.
+
+### **Backend**
+- **`codegen/codegen.js`**: Evaluates the AST and executes the code.
+
+---
+
+## How to run
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
